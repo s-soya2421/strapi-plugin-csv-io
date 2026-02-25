@@ -1,0 +1,31 @@
+{
+  "name": "strapi-plugin-csv-io",
+  "version": "0.1.0",
+  "description": "CSV Import/Export plugin for Strapi v5",
+  "strapi": {
+    "kind": "plugin",
+    "displayName": "CSV IO",
+    "description": "Strapi v5 向け CSV インポート/エクスポートプラグイン"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.3",
+    "csv-stringify": "^6.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@vitest/coverage-v8": "^2.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@strapi/strapi": "^5.0.0"
+  }
+}
