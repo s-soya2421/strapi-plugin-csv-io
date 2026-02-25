@@ -1,0 +1,31 @@
+{
+  "plugin.name": "CSV Import Export",
+  "plugin.description": "Import and export content types as CSV files",
+
+  "app.tab.import": "Import",
+  "app.tab.export": "Export",
+
+  "app.import.label.contentType": "Content Type",
+  "app.import.hint.contentType": "The UID of the content type (e.g. api::article.article)",
+  "app.import.label.idField": "ID Field (optional)",
+  "app.import.hint.idField": "Field used to identify existing records for upsert (e.g. slug). Leave blank to always create new records.",
+  "app.import.label.file": "CSV File",
+  "app.import.button.submit": "Import",
+  "app.import.button.reset": "Import another file",
+  "app.import.error.contentType.required": "Content type is required",
+  "app.import.error.file.required": "Please select a CSV file",
+  "app.import.result.title": "Import completed",
+  "app.import.result.summary": "{total} rows processed: {created} created, {updated} updated, {skipped} skipped, {failed} failed",
+  "app.import.notification.success": "{total} rows processed successfully",
+
+  "app.export.label.contentType": "Content Type",
+  "app.export.hint.contentType": "The UID of the content type to export (e.g. api::article.article)",
+  "app.export.label.excludeFields": "Exclude Fields (optional)",
+  "app.export.hint.excludeFields": "Comma-separated list of fields to exclude (e.g. documentId,createdAt,updatedAt)",
+  "app.export.button.submit": "Export as CSV",
+  "app.export.error.contentType.required": "Content type is required",
+  "app.export.notification.success": "Downloaded: {filename}",
+
+  "app.error.title": "Error",
+  "app.error.unknown": "An unexpected error occurred"
+}

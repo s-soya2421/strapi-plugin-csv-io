@@ -4,12 +4,12 @@ export default defineConfig({
   test: {
     environment: 'node',
     globals: true,
-    include: ['server/**/*.test.ts'],
+    include: ['server/src/**/*.test.ts'],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'lcov'],
-      include: ['server/**/*.ts'],
-      exclude: ['server/**/*.test.ts', 'server/interfaces/**'],
+      include: ['server/src/**/*.ts'],
+      exclude: ['server/src/**/*.test.ts', 'server/src/interfaces/**'],
     },
   },
 });

@@ -4,8 +4,8 @@
     "module": "CommonJS",
     "lib": ["ES2020"],
     "moduleResolution": "node",
-    "outDir": "./dist",
-    "rootDir": "./server",
+    "outDir": "./dist/server",
+    "rootDir": "./server/src",
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -18,6 +18,6 @@
     "sourceMap": true,
     "resolveJsonModule": true
   },
-  "include": ["server/**/*"],
+  "include": ["server/src/**/*"],
   "exclude": ["node_modules", "dist", "**/*.test.ts"]
 }

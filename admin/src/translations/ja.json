@@ -1,0 +1,31 @@
+{
+  "plugin.name": "CSV インポート/エクスポート",
+  "plugin.description": "コンテンツタイプを CSV ファイルでインポート/エクスポートします",
+
+  "app.tab.import": "インポート",
+  "app.tab.export": "エクスポート",
+
+  "app.import.label.contentType": "コンテンツタイプ",
+  "app.import.hint.contentType": "コンテンツタイプの UID を入力してください（例: api::article.article）",
+  "app.import.label.idField": "ID フィールド（任意）",
+  "app.import.hint.idField": "既存レコードを特定するフィールド（例: slug）。未指定の場合は常に新規作成します。",
+  "app.import.label.file": "CSV ファイル",
+  "app.import.button.submit": "インポート",
+  "app.import.button.reset": "別のファイルをインポート",
+  "app.import.error.contentType.required": "コンテンツタイプは必須です",
+  "app.import.error.file.required": "CSV ファイルを選択してください",
+  "app.import.result.title": "インポート完了",
+  "app.import.result.summary": "{total} 件処理: {created} 件作成、{updated} 件更新、{skipped} 件スキップ、{failed} 件失敗",
+  "app.import.notification.success": "{total} 件処理しました",
+
+  "app.export.label.contentType": "コンテンツタイプ",
+  "app.export.hint.contentType": "エクスポート対象のコンテンツタイプ UID（例: api::article.article）",
+  "app.export.label.excludeFields": "除外フィールド（任意）",
+  "app.export.hint.excludeFields": "除外するフィールドをカンマ区切りで入力（例: documentId,createdAt,updatedAt）",
+  "app.export.button.submit": "CSV でエクスポート",
+  "app.export.error.contentType.required": "コンテンツタイプは必須です",
+  "app.export.notification.success": "ダウンロードしました: {filename}",
+
+  "app.error.title": "エラー",
+  "app.error.unknown": "予期しないエラーが発生しました"
+}

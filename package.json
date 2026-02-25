@@ -4,13 +4,32 @@
   "description": "CSV Import/Export plugin for Strapi v5",
   "strapi": {
     "kind": "plugin",
+    "name": "csv-import-export",
     "displayName": "CSV Import Export",
     "description": "Strapi v5 向け CSV インポート/エクスポートプラグイン"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "exports": {
+    "./strapi-admin": {
+      "source": "./admin/src/index.ts",
+      "import": "./dist/admin/index.mjs",
+      "require": "./dist/admin/index.js",
+      "default": "./dist/admin/index.js"
+    },
+    "./strapi-server": {
+      "source": "./server/src/index.ts",
+      "import": "./dist/server/index.mjs",
+      "require": "./dist/server/index.js",
+      "default": "./dist/server/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/server/index.js",
+  "module": "./dist/server/index.mjs",
+  "types": "./dist/server/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "strapi-plugin build",
+    "watch": "strapi-plugin watch",
+    "verify": "strapi-plugin verify",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
@@ -20,12 +39,17 @@
     "csv-stringify": "^6.4.5"
   },
   "devDependencies": {
+    "@strapi/sdk-plugin": "^5.0.0",
     "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
     "@vitest/coverage-v8": "^2.0.0",
     "typescript": "^5.4.0",
     "vitest": "^2.0.0"
   },
   "peerDependencies": {
-    "@strapi/strapi": "^5.0.0"
+    "@strapi/strapi": "^5.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }
