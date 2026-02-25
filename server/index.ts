@@ -22,6 +22,6 @@ export default {
   },
 
   routes: {
-    'csv-io': adminRoutes,
+    'csv-import-export': adminRoutes,
   },
 };

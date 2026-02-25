@@ -1,4 +1,4 @@
-# strapi-plugin-csv-io
+# strapi-plugin-csv-import-export
 
 Strapi v5 向けの CSV インポート / エクスポートプラグイン。
 
@@ -18,14 +18,14 @@ Strapi v5 向けの CSV インポート / エクスポートプラグイン。
 ## インストール
 
 ```bash
-npm install strapi-plugin-csv-io
+npm install strapi-plugin-csv-import-export
 ```
 
 `config/plugins.ts`（または `config/plugins.js`）でプラグインを有効化します。
 
 ```ts
 export default {
-  'csv-io': {
+  'csv-import-export': {
     enabled: true,
   },
 };
@@ -38,7 +38,7 @@ export default {
 ### CSV インポート
 
 ```
-POST /api/csv-io/import
+POST /api/csv-import-export/import
 ```
 
 `multipart/form-data` で CSV ファイルをアップロードします。
@@ -65,12 +65,12 @@ POST /api/csv-io/import
 
 ```bash
 # 常に新規作成
-curl -X POST "http://localhost:1337/api/csv-io/import?contentType=api::article.article" \
+curl -X POST "http://localhost:1337/api/csv-import-export/import?contentType=api::article.article" \
   -H "Authorization: Bearer <admin-jwt>" \
   -F "files=@articles.csv"
 
 # title フィールドで既存レコードを更新（upsert）
-curl -X POST "http://localhost:1337/api/csv-io/import?contentType=api::article.article&idField=title" \
+curl -X POST "http://localhost:1337/api/csv-import-export/import?contentType=api::article.article&idField=title" \
   -H "Authorization: Bearer <admin-jwt>" \
   -F "files=@articles.csv"
 ```
@@ -116,7 +116,7 @@ curl -X POST "http://localhost:1337/api/csv-io/import?contentType=api::article.a
 ### CSV エクスポート
 
 ```
-GET /api/csv-io/export
+GET /api/csv-import-export/export
 ```
 
 指定したコンテンツタイプの全レコードを CSV ファイルとしてダウンロードします。
@@ -133,12 +133,12 @@ GET /api/csv-io/export
 
 ```bash
 # 全フィールドをエクスポート
-curl "http://localhost:1337/api/csv-io/export?contentType=api::article.article" \
+curl "http://localhost:1337/api/csv-import-export/export?contentType=api::article.article" \
   -H "Authorization: Bearer <admin-jwt>" \
   -o articles.csv
 
 # Strapi 管理フィールドを除外してエクスポート
-curl "http://localhost:1337/api/csv-io/export?contentType=api::article.article&excludeFields=documentId,createdAt,updatedAt,publishedAt" \
+curl "http://localhost:1337/api/csv-import-export/export?contentType=api::article.article&excludeFields=documentId,createdAt,updatedAt,publishedAt" \
   -H "Authorization: Bearer <admin-jwt>" \
   -o articles.csv
 ```
@@ -192,7 +192,7 @@ npm run test:coverage
 |---|---|---|
 | `server/controllers/csv-controller.test.ts` | 単体テスト | 12 |
 | `server/services/csv-service.test.ts` | 単体テスト | 22 |
-| `server/integration/csv-io.integration.test.ts` | 統合テスト | 9 |
+| `server/integration/csv-import-export.integration.test.ts` | 統合テスト | 9 |
 
 ### アーキテクチャ
 

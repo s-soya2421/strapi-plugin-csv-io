@@ -296,7 +296,7 @@ describe('csvController.import', () => {
 
     await expect(controller.import(ctx)).rejects.toMatchObject({ status: 500 });
     expect(logger.error).toHaveBeenCalledWith(
-      '[csv-io] Import failed:',
+      '[csv-import-export] Import failed:',
       expect.any(Error)
     );
   });
@@ -381,7 +381,7 @@ describe('csvController.export', () => {
 
     await expect(controller.export(ctx)).rejects.toMatchObject({ status: 500 });
     expect(logger.error).toHaveBeenCalledWith(
-      '[csv-io] Export failed:',
+      '[csv-import-export] Export failed:',
       expect.any(Error)
     );
   });

@@ -320,7 +320,7 @@ class CsvController {
       this.responseBuilder.buildImportSuccess(ctx, result);
     } catch (err) {
       const message = err instanceof Error ? err.message : '予期しないエラーが発生しました。';
-      this.logger.error('[csv-io] Import failed:', err);
+      this.logger.error('[csv-import-export] Import failed:', err);
       this.responseBuilder.buildServerError(ctx, `インポート処理中にエラーが発生しました: ${message}`);
     }
   }
@@ -355,7 +355,7 @@ class CsvController {
       );
     } catch (err) {
       const message = err instanceof Error ? err.message : '予期しないエラーが発生しました。';
-      this.logger.error('[csv-io] Export failed:', err);
+      this.logger.error('[csv-import-export] Export failed:', err);
       this.responseBuilder.buildServerError(ctx, `エクスポート処理中にエラーが発生しました: ${message}`);
     }
   }
@@ -387,7 +387,7 @@ const csvControllerFactory = ({
     log: ILogger;
   };
 }) => {
-  const csvService = strapi.plugin('csv-io').service('csvService') as ICsvIoService;
+  const csvService = strapi.plugin('csv-import-export').service('csvService') as ICsvIoService;
   const controller = new CsvController(csvService, strapi.log);
 
   // Strapi Controller はメソッドを直接エクスポートする必要がある
